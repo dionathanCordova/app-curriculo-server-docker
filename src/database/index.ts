@@ -1,3 +1,7 @@
 import { createConnection } from 'typeorm';
 
-createConnection();
+try {
+   createConnection();
+} catch (error) {
+   console.log(error);
+}
