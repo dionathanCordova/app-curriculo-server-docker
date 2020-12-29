@@ -15,13 +15,19 @@ export default class AuthenticateController{
             email: userData.email,
             bio: userData.bio,
             whatsapp: userData.whatsapp,
-            avatar: userData.avatar
+            avatar: userData.avatar,
+            idade: userData.idade,
+            genero: userData.genero,
+            midias: userData.midias,
+            cidade: userData.cidade,
+            estado: userData.estado,
+            bairro: userData.bairro,
+            password: userData.password,
          };
 
-         return response.status(200).json({user, token, status: 200});
+         return response.status(200).json({user, token, status: 'ok', statusCode: 200});
       } catch (error) {
-         console.log(error.message)
-         return response.status(400).json({error: error.message, status: false});
+         return response.status(400).json({error: error.message, status: false, statusCode: 400});
       }
    }
 }

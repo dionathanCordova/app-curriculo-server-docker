@@ -15,9 +15,16 @@ interface IResponse {
       avatar: string,
       whatsapp: string,
       email: string,
+      idade: string,
+      genero: string,
       bio: string,
+      midias: string,
+      cidade: string,
+      estado: string,
+      bairro: string,
+      password: string,
    },
-   token: string;
+      token: string,
 }
 
 export default class AuthService{
@@ -25,6 +32,7 @@ export default class AuthService{
       const userRepository = getRepository(User);
 
       const userData = await userRepository.findOne({where: {email}});
+
       if(!userData) {
          throw new Error('Credentials dont match');
       }
@@ -38,6 +46,8 @@ export default class AuthService{
         subject: userData.email,
         expiresIn: '1d'
      })
+
+     console.log(userData);
 
      return {userData, token};
    }

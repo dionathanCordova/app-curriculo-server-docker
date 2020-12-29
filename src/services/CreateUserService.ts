@@ -24,15 +24,10 @@ export default class CreateUserService {
          throw new Error("Email already in use");
       }
 
-      // const token = sign({}, '8889d00d4773aa1c485a26901b89d833', {
-      //    subject: email,
-      //    expiresIn: '1d',
-      // });
-
       const hashPass = await hash(password, 8);
       const user = userRepository.create({
          email,
-         password: hashPass
+         password: hashPass,
       })
 
       await userRepository.save(user);
