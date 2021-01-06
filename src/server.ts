@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import express from 'express';
 import routes from './routes/routes';
 import cors from 'cors';
+import uploadConfig from './config/upload';
 
 import './database';
 
@@ -12,6 +13,7 @@ dotenv.config();
 const app = express();
 
 app.use(express.static('public'));
+app.use('/files', express.static(uploadConfig.directory));
 app.use(cors({
     origin: 'http://localhost:3000'
 }));

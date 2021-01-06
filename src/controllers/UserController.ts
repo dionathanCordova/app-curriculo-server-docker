@@ -2,8 +2,9 @@ import { compare, hash } from 'bcryptjs';
 import { Request, Response } from 'express';
 import { getRepository } from 'typeorm';
 import User from '../models/UserModel';
-import CreateUserService from '../services/CreateUserService';
 
+import CreateUserService from '../services/CreateUserService';
+import UpdateUserAvatarService from '../services/UpdateUserAvatarService';
 export default class UserController {
     public async index(request: Request, response: Response): Promise<Response> {
 
@@ -95,6 +96,19 @@ export default class UserController {
         } catch (error) {
             return response.status(400).json({ status: error.message})
         }
+    }
 
+    public async updateAvatar(request: Request, response: Response): Promise<Response> {
+        try {
+            const { id } = request.params;
+
+            const updateAvatartService = new UpdateUserAvatarService();
+            const updateUser = await updateAvatartService.execute({user_id: id, avatarFileName: request.file.filename});
+
+            return response.json(updateUser);
+            
+        } catch (error) {
+            return response.status(400).json({ status: error.message})
+        }
     }
 }
