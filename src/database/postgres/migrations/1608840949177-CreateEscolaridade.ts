@@ -15,6 +15,10 @@ export default class CreateEscolaridade1608840949177 implements MigrationInterfa
                         default: 'uuid_generate_v4()'
                     },
                     {
+                        name: 'user_id',
+                        type: 'uuid'
+                    },
+                    {
                         name: 'titulo',
                         type: 'varchar',
                         isNullable: true,

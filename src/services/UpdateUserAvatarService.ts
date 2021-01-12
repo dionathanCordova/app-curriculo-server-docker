@@ -31,7 +31,6 @@ export default class UpdateUserAvatarService {
       user.avatar = avatarFileName;
       await userRepository.save(user);
 
-      console.log(user);
       return user;
    }
 }

@@ -40,7 +40,7 @@ export default class CreateUser1608840426618 implements MigrationInterface {
                     },
                     {
                         name: 'idade',
-                        type: 'number',
+                        type: 'integer',
                     },
                     {
                         name: 'midias',

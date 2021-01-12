@@ -19,7 +19,7 @@ export default class CreateProfissoes1610026698895 implements MigrationInterface
                         type: 'varchar'
                     },
                     {
-                        name: 'iconPath',
+                        name: 'icon_path',
                         type: 'varchar',
                     },
                     {

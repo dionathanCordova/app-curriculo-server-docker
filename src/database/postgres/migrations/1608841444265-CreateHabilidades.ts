@@ -12,7 +12,11 @@ export default class CreateHabilidades1608841444265 implements MigrationInterfac
                         type: 'uuid',
                         generationStrategy: 'uuid',
                         isPrimary: true,
-                        default: 'uuid_generator_v4()'
+                        default: 'uuid_generate_v4()'
+                    },
+                    {
+                        name: 'user_id',
+                        type: 'uuid'
                     },
                     {
                         name: 'titulo',

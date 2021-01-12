@@ -15,6 +15,10 @@ export default class CreateExperiencia1608842310162 implements MigrationInterfac
                         default: 'uuid_generate_v4'
                     },
                     {
+                        name: 'user_id',
+                        type: 'uuid'
+                    },
+                    {
                         name: 'cargo',
                         type: 'varchar'
                     },

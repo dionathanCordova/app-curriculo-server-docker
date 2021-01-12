@@ -1,21 +1,13 @@
-import express from 'express';
-import multer from 'multer';
-import uploadConfig from '../config/upload';
+import { Router } from 'express';
 
-import UserController from '../controllers/UserController';
-import AuthController from '../controllers/AuthController';
+import userRoutes from './user.routes';
+import authRoutes from './authenticate.routes';
+import profissoesRouter from './profissoes.routes';
 
-const userController = new UserController();
-const authController = new AuthController();
+const routes = Router();
 
-const routes = express();
-const upload = multer(uploadConfig);
+routes.use('/users', userRoutes);
+routes.use('/auth', authRoutes);
+routes.use('/profissoes', profissoesRouter);
 
-routes.get('/users', userController.index);
-routes.post('/users-create', userController.create);
-routes.post('/find-user', userController.findById);
-routes.post('/update-user/:id', userController.updateUser);
-routes.patch('/users/avatar/:id', upload.single('avatar'), userController.updateAvatar);
-
-routes.post('/auth', authController.create);
 export default routes;
